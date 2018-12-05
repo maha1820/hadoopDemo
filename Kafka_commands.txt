@@ -1,0 +1,33 @@
+Working with Kafka:
+-------------------
+
+to start zookeeper:
+------------------
+ bin/zkServer.sh start
+ bin/zkCli.sh start
+ 
+ runs on localhost:2181
+ 
+ to start Kafka:
+ ----------------
+ bin/kafka-server-start.sh config/server.properties
+ 
+ 
+ to create topic:
+ ---------------
+ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+
+Here name of the topic is test.We can now see that topic if we run the list topic command:
+
+bin/kafka-topics.sh --list --zookeeper localhost:2181
+
+Create producer:
+----------------
+bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test
+This is a message
+This is another message
+
+Create consumer:
+----------------
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test --from-beginning --new-consumer
+

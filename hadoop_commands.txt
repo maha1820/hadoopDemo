@@ -1,0 +1,36 @@
+Demo map Reduce:
+----------------
+
+hadoop fs -mkdir -p  /demo/input  
+hadoop fs -put /Users/mahalakshmi/dap/hadoopDemo/src/main/resources/input/file02.txt /demo/input
+hadoop fs -rm -r /demo/output  
+hadoop jar hadoopDemoMapreduce-1.0.jar mapReduce.WordCount  /demo/input  /demo/output
+
+
+hadoop fs -mkdir -p  /testing/input 
+hadoop fs -put /Users/mahalakshmi/dap/hadoopDemo/src/main/resources/input/SalesJan2009.csv /testing/input 
+hadoop jar  hadoopSalesDemo-1.0.jar   mapReduce.salesExample.SalesCountryDriver  /testing/input  /demo/output
+
+
+
+
+Demo Spark:
+ -----------
+hadoop fs -mkdir -p  /sparkDemo/input  
+hadoop fs -put /Users/mahalakshmi/dap/hadoopDemo/src/main/resources/input/in.txt /sparkDemo/input
+hadoop fs -rm -r /sparkDemo/output 
+hadoop jar hadoopSparkDemo-1.0.jar spark.JavaWordCount  /sparkDemo/input  /sparkDemo/output
+
+  
+how to browse the browse HDFS:
+------------------------------
+http://localhost:50070/explorer.html#/demo
+
+View application status:
+------------------------
+http://localhost:8088/cluster
+
+
+spark-shell
+val s = "hello world"
+
